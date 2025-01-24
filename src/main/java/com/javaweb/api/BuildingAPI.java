@@ -29,6 +29,7 @@ public class BuildingAPI {
 										 @RequestParam(value="districtid", required=false) String districtid,
 										 @RequestParam(value="typecode", required=false) List<String> typeCode) {
 		List<BuildingDTO> result = buildingService.findAll(name, districtid);
+		// Đây là branch main
 		return result;
 	}
 	

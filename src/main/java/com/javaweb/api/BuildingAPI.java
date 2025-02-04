@@ -1,6 +1,7 @@
 package com.javaweb.api;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,25 +20,20 @@ import customExceptions.FieldRequiredException;
 
 @RestController
 public class BuildingAPI {
-	
-//	private BuildingService buildingService = new BuildingServiceImpl();
 	@Autowired
 	private BuildingService buildingService;
 	
 	@GetMapping(value="/api/building/")
-	public List<BuildingDTO> getBuilding(@RequestParam(value="name", required=false) String name,
-										 @RequestParam(value="districtid", required=false) String districtid,
-										 @RequestParam(value="typecode", required=false) List<String> typeCode) {
-		List<BuildingDTO> result = buildingService.findAll(name, districtid);
-		// Đây là branch main
-		return result;
+	public List<BuildingDTO> getBuilding(@RequestParam Map<String, Object> params,
+										 @RequestParam(value="typeCode", required=false) List<String> typeCode) {
+		return buildingService.findAll(params, typeCode);
 	}
 	
-	public void validate(BuildingDTO buildingDTO) throws FieldRequiredException {
-		if(buildingDTO.getName() == null || buildingDTO.getName().equals("") || buildingDTO.getNumberOfBasement() == null) {
-			throw new FieldRequiredException("Error when name or number is null");
-		}
-	}
+//	public void validate(BuildingDTO buildingDTO) throws FieldRequiredException {
+//		if(buildingDTO.getName() == null || buildingDTO.getName().equals("") || buildingDTO.getNumberOfBasement() == null) {
+//			throw new FieldRequiredException("Error when name or number is null");
+//		}
+//	}
 	
 	@RequestMapping(value="/api/building/", method = RequestMethod.POST)
 	public BuildingDTO getBuilding2(@RequestBody BuildingDTO buildingDTO) {

@@ -2,11 +2,7 @@ package com.javaweb.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
-import com.javaweb.repository.entity.RentAreaEntity;
 
 public class ConnectionJDBCUtil {
 	static final String DB_URL = "jdbc:mysql://localhost:3306/estatebasic";

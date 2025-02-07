@@ -15,6 +15,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +26,7 @@ import com.javaweb.utils.NumberUtil;
 import com.javaweb.utils.StringUtil;
 
 @Repository
+@Primary
 public class JDBCBuildingRepositoryImpl implements BuildingRepository {
 	@PersistenceContext
 	private EntityManager entityManager;

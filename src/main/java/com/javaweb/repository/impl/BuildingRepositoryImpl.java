@@ -14,7 +14,7 @@ import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.entity.BuildingEntity;
 
 @Repository
-@Primary
+//@Primary
 public class BuildingRepositoryImpl implements BuildingRepository{
 	@PersistenceContext
 	private EntityManager entityManager;
